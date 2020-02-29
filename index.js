@@ -1,20 +1,27 @@
-var name = 'Ramiro',
-    lsname = 'Guzmán C.',
-    age = 21;
+// Reto de imprimir nombre y edad
 
-var upName = name.toUpperCase();
-var lwLsname = lsname.toLowerCase();
-var fullName = `${name} ${lsname}`;
-var str = name.substr(1, 3);
+alert("Oye, mira tu consola 🤭");
 
-console.log('Bienvenido de nuevo, ' + fullName);
-console.log('Sé que tienes ' + age + ' años');
-console.log('Y que estás aprendiendo a programarme');
-console.log('--------------------');
-console.log('La última letra de tu nombre es: ' + name.charAt(name.length - 1));
+var p1 = {
+
+    name: "Sasha",
+    age: 28
+
+}
+
+var p2 = {
+
+    name: "Darío",
+    age: 25
+
+}
 
 
-alert('Oye, mira tu consola 🤭');
+imprimirNombreYEdad(p1.name, p1.age);
+imprimirNombreYEdad(p2.name, p2.age);
 
-var precio = 200.3;
-var total = precio * 100 * 3 / 100;
+function imprimirNombreYEdad(name, age) {
+
+    console.log(`Hola, me llamo ${name} y tengo ${age} años`);
+
+}
