@@ -1,49 +1,40 @@
-// Ejercicio de filtros en arrays
+// Ejercicio de contar los libros que hay en total
 
 alert("Hola, mira tu consola 🤭");
 
 var sasha = {
     nombre: 'Sasha',
     apellido: 'Lifszyc',
-    altura: 1.56
+    altura: 1.56,
+    libros: 15
 }
 
 var dario = {
     nombre: 'Dario',
     apellido: 'Susnisky',
-    altura: 1.80
+    altura: 1.80,
+    libros: 5
 }
 
 var pepe = {
     nombre: 'Pepe',
     apellido: 'Perez',
-    altura: 1.45
+    altura: 1.45,
+    libros: 12
 }
 
 var juan = {
     nombre: 'Juan',
     apellido: 'Gomez',
-    altura: 1.90
+    altura: 1.90,
+    libros: 7
 }
 
-const esAlta = ({ altura }) => altura >= 1.8;
-const esBaja = ({ altura }) => altura < 1.7;
+personas = [sasha, dario, pepe, juan];
 
-var personas = [sasha, dario, pepe, juan];
-var personasAltas = personas.filter(esAlta);
-var personasBajas = personas.filter(esBaja);
+const reducer = (acum, persona) => acum + persona.libros;
 
-console.log(personasAltas)
-console.log(personasBajas)
 
-const pasarAlturaACms = (persona) => {
-    return { // Se está retornando un nuevo objeto para no modificar el valor "altura" del objeto inicial
-        ...persona,
-        altura: persona.altura * 100
+var totalDeLibros = personas.reduce(reducer, 0); // 0 es el valor inicial del acumulador, se debe pasar por parámetro siempre que use reduce al igual que una clase
 
-    }
-}
-
-var personasCms = personas.map(pasarAlturaACms);
-
-console.log(personasCms)
+console.log(`En total hay ${totalDeLibros} libros`);
