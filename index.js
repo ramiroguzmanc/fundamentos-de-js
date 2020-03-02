@@ -1,4 +1,4 @@
-//Ejercicio de simulación de peso utilizando el ciclo for y el método Random
+//Ejercicio de simulación de peso utilizando el ciclo while y el método Random
 
 alert("Oye, mira tu consola 🤭")
 
@@ -8,9 +8,6 @@ var Ramiro = {
     age: 21,
     weight: 60.60
 }
-
-console.log(`Al inicio del año ${Ramiro.name}, pesa ${Ramiro.weight}kg`)
-
 
 const CAMBIO_DE_PESO = 0.2;
 
@@ -23,21 +20,25 @@ const bajarDePeso = (persona) => persona.weight -= CAMBIO_DE_PESO;
 
 var NumeroDeIncrementos = 0;
 var NumeroDeDecrementos = 0;
-const DIAS_A_SIMULAR = 365;
+const PESO_DESEADO = Ramiro.weight - 3;
+var DiasTranscurridos = 0;
 
-for (var i = 0; i <= DIAS_A_SIMULAR; i++) {
-
+while (Ramiro.weight > PESO_DESEADO) {
     var random = Math.random();
 
-    if (random < 0.25) {
+    if (random <= 0.25) {
         aumentarDePeso(Ramiro);
         NumeroDeIncrementos++;
-    } else if (random < 0.50) {
+    } else if (random <= 0.5) {
         bajarDePeso(Ramiro);
         NumeroDeDecrementos++;
     }
+
+    DiasTranscurridos++;
+    // console.log(`Peso actual de Ramiro: ${Ramiro.weight}`);
 }
 
 console.log(`Al final del año, ${Ramiro.name} pesa ${Ramiro.weight.toFixed(2)}kg`)
+console.log(`Tiempo transcurrido: ${DiasTranscurridos} días`)
 console.log(`Número total de incrementos: ${NumeroDeIncrementos}`)
 console.log(`Número total de decrementos: ${NumeroDeDecrementos}`)
