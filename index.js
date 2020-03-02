@@ -1,47 +1,43 @@
-//Ejercicio del horóscopo con prompt y switch
+// Ejercicio de filtros en arrays
 
+alert("Hola, mira tu consola 🤭");
 
-var signo = prompt("¿Cuál es tu signo?");
-
-switch (signo) {
-    case 'Acuario':
-    case 'acuario':
-        console.log("El signo introducido es acuario")
-        break;
-    case 'Piscis':
-    case 'piscis':
-        console.log("El signo introducido es piscis")
-        break;
-    case 'Cancer':
-    case 'Cáncer':
-    case 'cancer':
-    case 'cáncer':
-        console.log("El signo introducido es cancer")
-        break;
-    case 'Libra':
-    case 'libra':
-        console.log("El signo introducido es libra")
-        break;
-    case 'Escorpio':
-    case 'escorpio':
-        console.log("El signo introducido es escorpio")
-        break;
-    case 'Sagitario':
-    case 'sagitario':
-        console.log("El signo introducido es sagitario")
-        break;
-    case 'Capricornio':
-    case 'capricornio':
-        console.log("El signo introducido es capricornio")
-        break;
-    case 'Géminis':
-    case 'Geminis':
-    case 'geminis':
-    case 'géminis':
-        console.log("El signo introducido es géminis")
-        break;
-
-    default:
-        console.log("No se ha encontrado el signo introducido o no a introducido ningún signo")
-        break;
+var sasha = {
+    nombre: 'Sasha',
+    apellido: 'Lifszyc',
+    altura: 1.56
 }
+
+var dario = {
+    nombre: 'Dario',
+    apellido: 'Susnisky',
+    altura: 1.80
+}
+
+var pepe = {
+    nombre: 'Pepe',
+    apellido: 'Perez',
+    altura: 1.45
+}
+
+var juan = {
+    nombre: 'Juan',
+    apellido: 'Gomez',
+    altura: 1.90
+}
+
+const esAlta = ({ altura }) => altura >= 1.8;
+const esBaja = ({ altura }) => altura < 1.7;
+
+var personas = [sasha, dario, pepe, juan];
+var personasAltas = personas.filter(esAlta);
+var personasBajas = personas.filter(esBaja);
+
+console.log(personasAltas)
+console.log(personasBajas)
+
+// for (var i = 0; i < personas.length; i++) {
+
+//     console.log(`Hola, soy ${personas[i].nombre} y mido ${personas[i].altura}m`)
+
+// }
