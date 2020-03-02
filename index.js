@@ -36,8 +36,14 @@ var personasBajas = personas.filter(esBaja);
 console.log(personasAltas)
 console.log(personasBajas)
 
-// for (var i = 0; i < personas.length; i++) {
+const pasarAlturaACms = (persona) => {
+    return { // Se está retornando un nuevo objeto para no modificar el valor "altura" del objeto inicial
+        ...persona,
+        altura: persona.altura * 100
 
-//     console.log(`Hola, soy ${personas[i].nombre} y mido ${personas[i].altura}m`)
+    }
+}
 
-// }
+var personasCms = personas.map(pasarAlturaACms);
+
+console.log(personasCms)
