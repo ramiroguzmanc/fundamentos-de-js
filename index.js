@@ -1,57 +1,43 @@
-// Reto de realizar arrow functions
+//Ejercicio de simulación de peso utilizando el ciclo for y el método Random
 
-alert("Oye, mira tu consola 🤭");
+alert("Oye, mira tu consola 🤭")
 
-var p1 = {
-
-    name: "Sasha",
-    age: 28
-
+var Ramiro = {
+    name: 'Ramiro',
+    lastname: 'Guzmán',
+    age: 21,
+    weight: 60.60
 }
 
-var p2 = {
-
-    name: "Darío",
-    age: 15
-
-}
+console.log(`Al inicio del año ${Ramiro.name}, pesa ${Ramiro.weight}kg`)
 
 
-// imprimirSiEsMayorDeEdad(p1);
-// imprimirSiEsMayorDeEdad(p2);
+const CAMBIO_DE_PESO = 0.2;
 
+// function aumentarDePeso(persona) {
+//     return persona.weight += 0.2;
+// } 
 
-const MAYORIA_DE_EDAD = 18;
+const aumentarDePeso = (persona) => persona.weight += CAMBIO_DE_PESO;
+const bajarDePeso = (persona) => persona.weight -= CAMBIO_DE_PESO;
 
-const PERMITIR_ACCESO = ({ age }) => age >= MAYORIA_DE_EDAD;
+var NumeroDeIncrementos = 0;
+var NumeroDeDecrementos = 0;
+const DIAS_A_SIMULAR = 365;
 
-function permiteAcceso(persona) {
-    if (!PERMITIR_ACCESO(persona)) {
-        console.log("ACCESO DENEGADO")
-    } else {
-        console.log("ACCESO APROBADO")
+for (var i = 0; i <= DIAS_A_SIMULAR; i++) {
+
+    var random = Math.random();
+
+    if (random < 0.25) {
+        aumentarDePeso(Ramiro);
+        NumeroDeIncrementos++;
+    } else if (random < 0.50) {
+        bajarDePeso(Ramiro);
+        NumeroDeDecrementos++;
     }
 }
 
-
-const IMPRIMIR_SI_ES_MAYOR_DE_EDAD = (persona) => {
-    if (persona.age >= MAYORIA_DE_EDAD) {
-        console.log(`${persona.name} es MAYOR de edad porque tiene ${persona.age} años`)
-    } else {
-        console.log(`${persona.name} es MENOR de edad porque tiene ${persona.age} años`)
-    }
-}
-
-IMPRIMIR_SI_ES_MAYOR_DE_EDAD(p1);
-IMPRIMIR_SI_ES_MAYOR_DE_EDAD(p2);
-
-// function imprimirSiEsMayorDeEdad(persona) {
-
-//     if (persona.age >= 18) {
-//         console.log(`${persona.name} es MAYOR de edad porque tiene ${persona.age} años`)
-//     } else {
-//         console.log(`${persona.name} es MENOR de edad porque tiene ${persona.age} años`)
-//     }
-
-
-// }
+console.log(`Al final del año, ${Ramiro.name} pesa ${Ramiro.weight.toFixed(2)}kg`)
+console.log(`Número total de incrementos: ${NumeroDeIncrementos}`)
+console.log(`Número total de decrementos: ${NumeroDeDecrementos}`)
