@@ -1,40 +1,37 @@
-// Ejercicio de contar los libros que hay en total
+// POO
 
-alert("Hola, mira tu consola 🤭");
+function Human(name, lastname, age, height) {
 
-var sasha = {
-    nombre: 'Sasha',
-    apellido: 'Lifszyc',
-    altura: 1.56,
-    libros: 15
+    this.name = name;
+    this.lastname = lastname;
+    this.age = age;
+    this.height = height;
+
 }
 
-var dario = {
-    nombre: 'Dario',
-    apellido: 'Susnisky',
-    altura: 1.80,
-    libros: 5
+
+var Ramiro = new Human('Ramiro', 'Guzmán', 21, 1.81);
+var Gabriela = new Human('Gabriela', 'Campos', 24, 1.61);
+
+const ESTATURA_ALTA = 1.80;
+
+Human.prototype.greeting = function() {
+
+    if (this.height >= ESTATURA_ALTA) {
+
+        console.log(`Hola, Soy ${this.name} ${this.lastname}. Tengo ${this.age} años y soy alto porque mido ${this.height}mts`);
+
+    } else {
+
+        console.log(`Hola, Soy ${this.name} ${this.lastname}. Tengo ${this.age} años y soy bajito porque mido ${this.height}mts`);
+
+    }
+
+
+
 }
 
-var pepe = {
-    nombre: 'Pepe',
-    apellido: 'Perez',
-    altura: 1.45,
-    libros: 12
-}
-
-var juan = {
-    nombre: 'Juan',
-    apellido: 'Gomez',
-    altura: 1.90,
-    libros: 7
-}
-
-personas = [sasha, dario, pepe, juan];
-
-const reducer = (acum, persona) => acum + persona.libros;
 
 
-var totalDeLibros = personas.reduce(reducer, 0); // 0 es el valor inicial del acumulador, se debe pasar por parámetro siempre que use reduce al igual que una clase
 
-console.log(`En total hay ${totalDeLibros} libros`);
+// Ramiro.greeting();
