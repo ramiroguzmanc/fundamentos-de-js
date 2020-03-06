@@ -1,14 +1,22 @@
-//Uso de la API de StarWars para hacer uso de los callbacks
+const API_URL = 'https://pokeapi.co/api/v2/'
+const POKEMON_URL = 'pokemon/:id/'
 
-var user_personaje = prompt('Introduce el número del personaje que deseas que te salude')
-
-const API_URL = 'https://swapi.co/api/'
-const PEOPLE_URL = 'people/:id'
-
-const LUKE_URL = `${API_URL}${PEOPLE_URL.replace(':id',user_personaje)}`
 const opts = { crossDomain: true }
 
-const onPeopleResponse = (persona) => console.log(`Hola yo soy ${persona.name}`)
+const onPokemonResponse = (pokemon) => console.log(`Un ${pokemon.name} salvaje aparece!`)
+
+function obtenerPokemon(id) {
+    var url = `${API_URL}${POKEMON_URL.replace(':id',id)}`
+    $.get(url, opts, onPokemonResponse)
+}
 
 
-$.get(LUKE_URL, opts, onPeopleResponse)
+var generarRandom = () => (Math.random().toFixed(1) * 100) + 1
+
+for (i = 0; i < 10; i++) {
+
+    var random = generarRandom()
+    console.log(random)
+    obtenerPokemon(random)
+
+}
