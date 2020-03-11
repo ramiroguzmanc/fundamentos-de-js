@@ -22,9 +22,28 @@ function onError(id) {
 }
 
 obtenerPokemon(1)
-    .then(function(pokemon) {
+    .then((pokemon) => {
         console.log(`El pokemon 1 es ${pokemon.name}`)
-
+        return obtenerPokemon(2)
+    })
+    .then((pokemon) => {
+        console.log(`El pokemon 2 es ${pokemon.name}`)
+        return obtenerPokemon(3)
+    })
+    .then((pokemon) => {
+        console.log(`El pokemon 3 es ${pokemon.name}`)
+        return obtenerPokemon(4)
+    })
+    .then((pokemon) => {
+        console.log(`El pokemon 4 es ${pokemon.name}`)
+        return obtenerPokemon(5)
+    })
+    .then((pokemon) => {
+        console.log(`El pokemon 5 es ${pokemon.name}`)
+        return obtenerPokemon(6)
+    })
+    .then((pokemon) => {
+        console.log(`El pokemon 6 es ${pokemon.name}`)
     })
     .catch(onError)
 
