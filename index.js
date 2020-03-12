@@ -6,19 +6,65 @@ const btnEmpezar = document.getElementById('btnEmpezar')
 
 
 function empezarJuego() {
-    // console.log(`Entré a empezar juego`)
-    var juego = new Juego()
+
+    window.juego = new Juego()
 }
 
 class Juego {
     constructor() {
-        // console.log(`Emtré al constructor`)
+
         this.inicializar()
+        this.generarSecuencia()
+        this.siguienteNivel()
     }
 
     inicializar() {
-        // console.log(`Entré a inicializar`)
+
         btnEmpezar.classList.add('hide')
+        this.nivel = 1
+        this.colores = {
+            celeste: celeste,
+            violeta: violeta,
+            naranja: naranja,
+            verde: verde
+        }
+    }
+
+    generarSecuencia() {
+        this.secuencia = new Array(10).fill(0).map(n => Math.floor(Math.random() * 4)) //Fill rellena todos los espacios del array con el valor que le pasemos por parámetro
+    }
+
+    siguienteNivel() {
+        this.iluminarSecuencia()
+    }
+
+    transformarNumeroAColor(numero) {
+        switch (numero) {
+            case 0:
+                return 'celeste'
+            case 1:
+                return 'violeta'
+            case 2:
+                return 'naranja'
+            case 3:
+                return 'verde'
+        }
+    }
+
+    iluminarSecuencia() {
+        for (let i = 0; i < this.nivel; i++) {
+            let color = this.transformarNumeroAColor(this.secuencia[i])
+            setTimeout(() => this.iluminarColor(color), 1000 * i)
+        }
+    }
+
+    apagarColor(color) {
+        this.colores[color].classList.remove('light')
+    }
+
+    iluminarColor(color) {
+        this.colores[color].classList.add('light')
+        setTimeout(() => this.apagarColor(color), 350)
     }
 
 }
